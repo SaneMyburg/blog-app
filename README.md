@@ -139,7 +139,7 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Processing data in models.
+- Model validations
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
