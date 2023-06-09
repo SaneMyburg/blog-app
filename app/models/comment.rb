@@ -5,6 +5,8 @@ class Comment < ActiveRecord::Base
   after_create :update_post_comments_counter
   after_destroy :update_post_comments_counter
 
+  validates :text, presence: true
+
   private
 
   def update_post_comments_counter
