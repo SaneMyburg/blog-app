@@ -8,5 +8,4 @@ RSpec.describe Like, type: :model do
   it 'new like should be saved in the database' do
     expect(subject).to be_persisted
   end
-  
 end
