@@ -29,22 +29,30 @@ RSpec.describe User, type: :model do
 
     it 'returns the most recent 3 posts of the user' do
       recent_posts = [
-        Post.create(title: 'First Post', text: 'Hello', comments_counter: 0, likes_counter: 0, author: user, created_at: 3.days.ago),
-        Post.create(title: 'Second Post', text: 'World', comments_counter: 0, likes_counter: 0, author: user, created_at: 2.days.ago),
-        Post.create(title: 'Third Post', text: 'Test', comments_counter: 0, likes_counter: 0, author: user, created_at: 1.day.ago)
+        Post.create(title: 'First Post', text: 'Hello', comments_counter: 0, likes_counter: 0, author: user,
+                    created_at: 3.days.ago),
+        Post.create(title: 'Second Post', text: 'World', comments_counter: 0, likes_counter: 0, author: user,
+                    created_at: 2.days.ago),
+        Post.create(title: 'Third Post', text: 'Test', comments_counter: 0, likes_counter: 0, author: user,
+                    created_at: 1.day.ago)
       ]
-    
+
       recent_posts.each { |post| post.update(author_id: user.id) }
-    
-      expected = recent_posts.map { |post| post.attributes.slice('id', 'title', 'text', 'comments_counter', 'likes_counter', 'author_id', 'created_at', 'updated_at') }
-      actual = User.recent_posts(user).map { |post| post.attributes.slice('id', 'title', 'text', 'comments_counter', 'likes_counter', 'author_id', 'created_at', 'updated_at') }
-    
+
+      expected = recent_posts.map do |post|
+        post.attributes.slice('id', 'title', 'text', 'comments_counter', 'likes_counter', 'author_id', 'created_at',
+                              'updated_at')
+      end
+      actual = User.recent_posts(user).map do |post|
+        post.attributes.slice('id', 'title', 'text', 'comments_counter', 'likes_counter', 'author_id', 'created_at',
+                              'updated_at')
+      end
+
       expected.sort_by! { |post| post['created_at'] }
       actual.sort_by! { |post| post['created_at'] }
-    
+
       expect(expected).to eq(actual)
       expect(actual.all? { |post| post['author_id'] == user.id }).to be_truthy
     end
-      
   end
 end
