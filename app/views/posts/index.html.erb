@@ -1,11 +1,1 @@
-<h1>Posts by <%= @user.name %></h1>
-<%= link_to "Back to User", user_path(@user) %>
-
-<% @posts.each do |post| %>
-  <div>
-    <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
-    <p><%= post.text %></p>
-    <p>Likes: <%= post.likes_counter %></p>
-    <p>Comments: <%= post.comments_counter %></p>
-  </div>
-<% end %>
+<p>List of all posts and comment of a user</p>
