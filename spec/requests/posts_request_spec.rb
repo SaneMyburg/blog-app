@@ -26,7 +26,7 @@ RSpec.describe 'Controllers', type: :request do
       end
 
       it 'renders the show template' do
-        get '/users/1/posts/4'
+        get '/users/1/posts/2'
         expect(response).to render_template(:show)
       end
 
