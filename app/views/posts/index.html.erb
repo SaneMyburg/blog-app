@@ -1,5 +1,6 @@
 <%= image_tag @user.photo %>
 <h1><%= @user.name %></h1>
+<p>Posts: <%= @posts_counter %></p>
 <p>Bio: <%= @user.bio %></p>
 <% @posts.each do |post| %>
   <div>
