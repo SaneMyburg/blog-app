@@ -1,7 +1,6 @@
-<%# <p>List of all posts and comment of a user</p> %>
-<h1>Posts by <%= @user.name %></h1>
-<%= link_to "Back to User", user_path(@user) %>
-
+<%= image_tag @user.photo %>
+<h1><%= @user.name %></h1>
+<p>Bio: <%= @user.bio %></p>
 <% @posts.each do |post| %>
   <div>
     <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
