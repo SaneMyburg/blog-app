@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
       puts "Name: #{user.name}"
       puts "Bio: #{user.bio}"
     else
-      puts "User not found."
+      puts 'User not found.'
     end
-  end  
+  end
 end
