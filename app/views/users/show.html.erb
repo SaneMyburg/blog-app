@@ -1,1 +1,15 @@
-<p>Details for a given users with post</p>
+<%# <p>Details for a given users with post</p> %>
+
+<%= image_tag @user.photo %>
+<h1><%= @user.name %></h1>
+<p><%= @user.bio %></p>
+
+<h2>Recent Posts</h2>
+<% @recent_posts.each do |post| %>
+  <div>
+    <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+    <p>Likes: <%= post.likes_counter %></p>
+    <p>Comments: <%= post.comments_counter %></p>
+  </div>
+<% end %>
+

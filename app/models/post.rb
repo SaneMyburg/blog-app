@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   after_create :update_user_posts_counter
 
   def update_user_posts_counter
-    author.increment!(:posts_counter)
+    author.update(posts_counter: author.posts.count)
   end
 
   def recent_comments(limit = 5)

@@ -1,2 +1,11 @@
-<p>The list of all users</p>
+<%# <p>The list of all users</p> %>
 
+<%# <h1>All Users</h1> %>
+
+<% @users.each do |user| %>
+  <div>
+    <div><%= image_tag user.photo%></div>
+    <h3><%= link_to user.name, user_path(user) %></h3>
+    <p>Posts: <%= link_to user.posts_counter, user_posts_path(user) %></p>
+  </div>
+<% end %>
