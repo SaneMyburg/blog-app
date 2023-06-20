@@ -1,0 +1,70 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.user-container {
+  margin: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.user-photo {
+  padding: 1em;
+}
+
+.user-photo,
+.user-details,
+.user-bio,
+.post-details {
+  border: 2px solid rgb(27, 25, 25);
+}
+
+.user-details {
+  width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details p {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: 0.5em;
+}
+
+.user-bio {
+  margin-left: 20px;
+  padding: 1.1em;
+  width: 90%;
+}
+
+.post-details {
+  width: 90%;
+  padding: 1em;
+  margin: 10px 20px;
+}
+
+.counters {
+  display: flex;
+}
+
+.counters p {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: 0.5em;
+}
+
+.user-comments {
+  width: 90%;
+  border: 2px solid rgb(27, 25, 25);
+  margin: 0 20px;
+  padding: 1em;
+}
+
+.see-posts-btn {
+  width: 15%;
+  border: 1px solid rgb(10, 10, 10);
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+}

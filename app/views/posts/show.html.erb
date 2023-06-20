@@ -1,1 +1,13 @@
-<p>Details of a selected post </p>
+<div class="post-details">
+  <h1><%= @post.title %></h1>
+  <p><%= @post.text %></p>
+  <div class="counters">
+    <p>Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
+  </div>
+<h2>Comments</h2>
+</div>
+<div class="user-comments">
+<% @comments.each do |comment| %>
+    <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.text %></p>
+<% end %>
+</div>

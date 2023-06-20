@@ -1,1 +1,21 @@
-<p>Details for a given users with post</p>
+<%= render 'shared/user', user: @user %>
+<p class="user-bio"><%= @user.bio %></p>
+<% if @recent_posts.any? %>
+  <% @recent_posts.each do |post| %>
+    <div class="post-details">
+      <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+      <p><%= post.text %></p>
+      <div class="counters">
+        <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %> </p>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>No posts available.</p>
+<% end %>
+
+<% if @user.posts.any? %>
+<div class="see-posts-btn">
+  <%= link_to "See All Posts", user_posts_path(@user) %>
+</div>
+<% end %>

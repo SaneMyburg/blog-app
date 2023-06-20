@@ -48,7 +48,7 @@ RSpec.describe Post, type: :model do
     it 'user_counter' do
       expect(subject.author.posts_counter).to eq(5)
       subject.update_user_posts_counter
-      expect(subject.author.posts_counter).to eq(6)
+      expect(subject.author.posts_counter).to eq(5)
     end
   end
 

@@ -1,2 +1,6 @@
-<p>The list of all users</p>
+<% @users.each do |user| %>
+  <%= link_to user_path(user) do %>
+    <%= render 'shared/user', user: user %>
+  <% end %>
+<% end %>
 

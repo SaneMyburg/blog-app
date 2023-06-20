@@ -1,2 +1,22 @@
-<p>List of all posts and comment of a user</p>
-
+<%= render 'shared/user', user: @user %>
+<% @posts.each do |post| %>
+  <div class="post-details">
+    <h3>Post:<%= link_to post.id, user_post_path(@user, post) %></h3>
+    <p><%= post.text %></p>
+     <div class="counters">
+        <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %> </p>
+      </div>
+  </div>
+   <% if post.recent_comments.any? %>
+      <div class="user-comments">
+        <% post.recent_comments.each do |comment| %>
+          <div>
+            <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.text %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+<% end %>
+<div class="see-posts-btn">
+  <%= link_to "Pagination", "#" %>
+</div>
