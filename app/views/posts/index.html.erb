@@ -1,12 +1,23 @@
-<%= image_tag @user.photo %>
-<h1><%= @user.name %></h1>
-<p>Posts: <%= @posts_counter %></p>
-<p>Bio: <%= @user.bio %></p>
+<%= render 'shared/user', user: @user %>
 <% @posts.each do |post| %>
-  <div>
-    <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+  <div class="post-details">
+    <h3>Post:<%= link_to post.id, user_post_path(@user, post) %></h3>
     <p><%= post.text %></p>
-    <p>Likes: <%= post.likes_counter %></p>
-    <p>Comments: <%= post.comments_counter %></p>
+     <div class="counters">
+        <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %> </p>
+      </div>
   </div>
+   <% if post.recent_comments.any? %>
+      <div class="user-comments">
+        <% post.recent_comments.each do |comment| %>
+          <div>
+            <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.id %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 <% end %>
+
+<div class="see-posts-btn">
+  <%= link_to "Pagination", "#" %>
+</div>

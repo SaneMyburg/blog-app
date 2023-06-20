@@ -1,11 +1,13 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.text %></p>
-<p>Likes: <%= @post.likes_counter %></p>
-<p>Comments: <%= @post.comments_counter %></p>
-
-<h2>Comments</h2>
-<% @comments.each do |comment| %>
-  <div>
-    <p><strong><%= comment.author.name %>:</strong> <%= comment.text %></p>
+<div class="post-details">
+  <h1><%= @post.title %></h1>
+  <p><%= @post.text %></p>
+  <div class="counters">
+    <p>Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
   </div>
+<h2>Comments</h2>
+</div>
+<div class="user-comments">
+<% @comments.each do |comment| %>
+    <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.id %></p>
 <% end %>
+</div>
