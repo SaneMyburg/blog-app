@@ -8,6 +8,6 @@
 </div>
 <div class="user-comments">
 <% @comments.each do |comment| %>
-    <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.id %></p>
+    <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.text %></p>
 <% end %>
 </div>

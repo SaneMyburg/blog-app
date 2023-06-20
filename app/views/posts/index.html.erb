@@ -11,7 +11,7 @@
       <div class="user-comments">
         <% post.recent_comments.each do |comment| %>
           <div>
-            <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.id %></p>
+            <p><strong><%= comment.author.name %>:</strong> Comment:<%= comment.text %></p>
           </div>
         <% end %>
       </div>
