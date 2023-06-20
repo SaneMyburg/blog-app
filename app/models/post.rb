@@ -19,6 +19,6 @@ class Post < ActiveRecord::Base
   end
 
   def recent_comments(limit = 5)
-    comments.order(created_at: :desc).limit(limit)
+    comments.order(created_at: :asc).limit(limit)
   end
 end
