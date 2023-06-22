@@ -14,6 +14,19 @@
   <p>No posts available.</p>
 <% end %>
 
+<div class="post-form">
+  <h3>New Post</h3>
+  <%= form_with(model: @post, url: user_posts_path(@user), local: true) do |form| %>
+     <%= form.label :title %>
+    <%= form.text_field :title, name: 'post[title]' %>
+
+    <%= form.label :text %>
+    <%= form.text_area :text, name: 'post[text]' %>
+
+    <%= form.submit 'Create Post' %>
+  <% end %>
+</div>
+
 <% if @user.posts.any? %>
 <div class="see-posts-btn">
   <%= link_to "See All Posts", user_posts_path(@user) %>
