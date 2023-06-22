@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
- 
   def like
     @post = Post.find(params[:id])
     @user = @post.author
@@ -25,7 +24,6 @@ class PostsController < ApplicationController
     @like.save
     redirect_to user_post_path(user_id: @user.id, id: @post.id)
   end
-    
 
   def create
     puts current_user.inspect
