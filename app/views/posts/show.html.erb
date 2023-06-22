@@ -4,7 +4,11 @@
   <div class="counters">
     <p>Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
   </div>
-<h2>Comments</h2>
+  <div> <%= form_with(model: @post, url: like_user_post_path(@post), method: :post, local: true) do |form| %>
+  <%= form.button type: :submit, class: 'like-button' do %>
+    Add Like
+  <% end %>
+<% end %> </div>
 </div>
 <div class="user-comments">
 <% @comments.each do |comment| %>
