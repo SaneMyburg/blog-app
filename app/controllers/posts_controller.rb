@@ -17,16 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def like
-    @post = Post.find(params[:id])
-    @user = @post.author
-    @like = Like.new(author_id: @user.id, post_id: @post.id)
-    @like.save
-    redirect_to user_post_path(user_id: @user.id, id: @post.id)
-  end
-
   def create
-    puts current_user.inspect
     @post = Post.new(post_params)
     @post.author_id = current_user.id
     @post.comments_counter = 0

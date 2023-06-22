@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :new, :create] do
       resources :comments, only: [:new, :create]
       member do
-        post :like
+        post :like, controller: 'likes', action: 'create'
       end
     end
   end
