@@ -7,16 +7,25 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user = User.find(params[:user_id])
+    @user = @post.author
     @comments = @post.recent_comments
     @comment = Comment.new
     @current_user = current_user
   end
 
   def new
-    puts "New action called"
     @post = Post.new
   end
+
+ 
+  def like
+    @post = Post.find(params[:id])
+    @user = @post.author
+    @like = Like.new(author_id: @user.id, post_id: @post.id)
+    @like.save
+    redirect_to user_post_path(user_id: @user.id, id: @post.id)
+  end
+    
 
   def create
     puts current_user.inspect
