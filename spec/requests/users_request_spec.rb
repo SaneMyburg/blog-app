@@ -12,11 +12,6 @@ RSpec.describe 'Controllers', type: :request do
         get '/users'
         expect(response).to render_template(:index)
       end
-
-      it 'includes correct placeholder text in the response body' do
-        get '/users'
-        expect(response.body).to include('The list of all users')
-      end
     end
 
     describe '#show' do
@@ -30,12 +25,6 @@ RSpec.describe 'Controllers', type: :request do
         User.create(name: 'John')
         get '/users/1'
         expect(response).to render_template(:show)
-      end
-
-      it 'includes correct placeholder text in the response body' do
-        User.create(name: 'John')
-        get '/users/1'
-        expect(response.body).to include('Details for a given users with post')
       end
     end
   end

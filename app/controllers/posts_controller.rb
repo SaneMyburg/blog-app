@@ -34,4 +34,3 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :text)
   end
 end
-# @user = User.includes(posts: :comments).find(params[:user_id])
