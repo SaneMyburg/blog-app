@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.order(created_at: :asc)
+    @posts = @user.posts.includes(:comments, author: :comments)
   end
 
   def show
@@ -34,3 +34,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :text)
   end
 end
+# @user = User.includes(posts: :comments).find(params[:user_id])

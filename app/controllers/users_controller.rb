@@ -9,3 +9,4 @@ class UsersController < ApplicationController
     @posts_count = @user.posts_counter
   end
 end
+# @user = User.includes(posts: :comments).find(params[:id])
