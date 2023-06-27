@@ -7,6 +7,7 @@ RSpec.feature 'User Index Page', type: :feature do
   end
 
   before do
+    user
     visit users_path
   end
 
