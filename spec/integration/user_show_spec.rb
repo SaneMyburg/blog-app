@@ -32,7 +32,7 @@ RSpec.describe 'User Show Page', type: :feature do
       expect(page).to have_content(@third_post.title)
       expect(page).not_to have_content(@fourth_post.title)
     end
-    
+
     it 'should have a link to see all posts' do
       expect(page.html).to include('See All Posts')
     end
