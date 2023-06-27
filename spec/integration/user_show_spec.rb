@@ -40,5 +40,9 @@ RSpec.describe 'User Show Page', type: :feature do
       click_on 'See All Posts'
       expect(current_path).to eq(current_path)
     end
+    it 'should redirect to post show page when clicking on post.' do
+      click_link @first_post.title
+      expect(page).to have_current_path(user_post_path(@user1, @first_post))
+    end
   end
 end

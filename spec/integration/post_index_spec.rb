@@ -18,7 +18,7 @@ RSpec.describe 'Post Index Page', type: :feature do
     it 'should show posts_counter of clicked user' do
       expect(page).to have_content(@user1.posts_counter)
     end
-    it 'should show all posts' do
+    it 'should show post title' do
       expect(page).to have_content(@first_post.title)
     end
     it 'should show post text' do
@@ -36,6 +36,10 @@ RSpec.describe 'Post Index Page', type: :feature do
     it 'should show a button for pagination if there are more posts than fit on the view.' do
       visit user_posts_path(@user1.id)
       expect(page).to have_button('Pagination')
+    end
+    it 'should redirect to post show page when clicking on post.' do
+      click_link @first_post.title
+      expect(page).to have_current_path(user_post_path(@user1, @first_post))
     end
   end
 end
