@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'User Index Page', type: :feature do
   let(:user) do
-    User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+    User.create(name: 'Sandy', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                 bio: 'Teacher from Poland.', posts_counter: 0)
   end
 

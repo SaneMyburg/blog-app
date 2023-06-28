@@ -12,6 +12,10 @@ RSpec.describe 'Post show Page', type: :feature do
       visit "/users/#{@user1.id}/posts/#{@first_post.id}"
     end
 
+    it 'should show post author' do
+      expect(page).to have_content(@user1.name)
+    end
+
     it 'should show post title' do
       expect(page).to have_content(@first_post.title)
     end
