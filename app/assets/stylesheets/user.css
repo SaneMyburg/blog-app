@@ -74,14 +74,14 @@ body {
 }
 
 .field,
-.actions { 
+.actions {
   margin-top: 1rem;
 }
 
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="password"],
-.actions input[type="submit"]  {
+.actions input[type="submit"] {
   width: 70%;
   border: 2px solid #000;
   box-sizing: border-box;
