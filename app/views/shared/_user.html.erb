@@ -1,5 +1,7 @@
   <div class="user-container">
-    <div class="user-photo"><%= image_tag user.photo%></div>
+    <div class="user-photo">
+      <img src= <%= user.photo %>>
+    </div>
     <div class="user-details">
       <h3><%= user.name %></h3>
          <p>Number of Posts: <%= link_to user.posts_counter %></p>
